@@ -4,6 +4,8 @@
 
 纯前端单文件工具，无需安装、无需后端、不联网即可使用；双击 HTML 即可打开，也可直接部署为静态站点。
 
+**在线使用：<https://qjp233.github.io/Baitu_Tools/>**
+
 ---
 
 ## 目录
@@ -15,6 +17,7 @@
 - [项目结构](#项目结构)
 - [技术说明](#技术说明)
 - [常见问题](#常见问题)
+- [在线访问入口](#在线访问入口)
 - [更新日志](#更新日志)
 - [许可与声明](#许可与声明)
 
@@ -116,6 +119,7 @@ lab-bench-splitter/index.html
 
 ```
 Baitu_Tools/
+├── index.html                 # 工具箱首页（GitHub Pages 入口）
 ├── README.md                  # 本文件
 ├── CHANGELOG.md               # 版本记录
 ├── .gitignore
@@ -165,6 +169,19 @@ Baitu_Tools/
 ## 更新日志
 
 见 [CHANGELOG.md](CHANGELOG.md)。
+
+---
+
+## 在线访问入口
+
+| 入口 | 地址 |
+|---|---|
+| 工具箱首页 | <https://qjp233.github.io/Baitu_Tools/> |
+| 中央台拆单（直达） | <https://qjp233.github.io/Baitu_Tools/lab-bench-splitter/> |
+
+由 GitHub Pages 托管，跟随 `main` 分支自动构建更新。手机、平板、电脑浏览器均可直接打开，无需安装任何软件。
+
+> 提示：如果打开后是旧版本，按 `Ctrl + F5`（Mac 为 `Cmd + Shift + R`）强制刷新缓存。
 
 ---
 

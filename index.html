@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baitu Tools · 实验室家具工具箱</title>
+<meta name="description" content="实验室家具设计与拆单工具集，当前包含中央台快速拆单（全钢 / 钢木 / 不锈钢）。">
+<style>
+:root{
+  --paper:#f1f1ea; --surface:#fbfbf6; --ink:#15181a; --ink-2:#39403f;
+  --muted:#75796f; --rule:#d7d8cd; --rule-2:#b3b6a9; --grid:#e4e5da;
+  --verm:#bf4527; --ok:#2c6b4e; --steel:#2c5f7c;
+  --font-ui:"Bahnschrift","DIN Alternate","HarmonyOS Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-mono:"Cascadia Mono","Consolas","SFMono-Regular",ui-monospace,monospace;
+  --ease:cubic-bezier(.165,.84,.44,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--font-ui);
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:26px 26px;opacity:.5;
+}
+.wrap{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:64px 24px 80px}
+
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.brand .mark{width:9px;height:9px;background:var(--verm)}
+.brand h1{margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em}
+.brand .en{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.lede{margin:6px 0 0;color:var(--ink-2);font-size:14px;line-height:1.65;max-width:56ch}
+
+.rule{height:1px;background:var(--rule-2);margin:26px 0 22px}
+
+.label{
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+}
+.label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+.cards{display:grid;gap:12px}
+.card{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;
+  background:var(--surface);border:1px solid var(--rule);padding:20px 22px;
+  text-decoration:none;color:inherit;position:relative;
+  transition:border-color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.card::before{content:"";position:absolute;top:-1px;left:-1px;width:9px;height:9px;border-top:2px solid var(--ink);border-left:2px solid var(--ink)}
+.card::after{content:"";position:absolute;bottom:-1px;right:-1px;width:9px;height:9px;border-bottom:2px solid var(--ink);border-right:2px solid var(--ink)}
+.card:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 10px 26px rgba(20,24,26,.09)}
+.card h2{margin:0 0 5px;font-size:19px;font-weight:600;letter-spacing:-.01em;display:flex;align-items:baseline;gap:9px}
+.card h2 span{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;color:var(--verm);border:1px solid var(--verm);padding:1px 5px;font-weight:400}
+.card p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.6}
+.card .meta{
+  display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;
+  font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:.03em;
+}
+.card .meta i{font-style:normal;color:var(--verm)}
+.go{
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--ink);background:var(--ink);color:#f7f7f2;padding:9px 16px;
+  transition:all .22s var(--ease);
+}
+.card:hover .go{background:transparent;color:var(--ink)}
+
+.foot{
+  margin-top:34px;padding-top:14px;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;
+  font-family:var(--font-mono);font-size:10.5px;color:var(--muted);letter-spacing:.03em;
+}
+.foot a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule-2)}
+.foot a:hover{color:var(--verm);border-color:var(--verm)}
+
+@media (max-width:640px){
+  .wrap{padding:40px 18px 56px}
+  .card{grid-template-columns:1fr;gap:14px}
+  .go{justify-self:start}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <span class="mark"></span>
+    <h1>Baitu Tools</h1>
+    <span class="en">Lab Furniture Toolkit</span>
+  </div>
+  <p class="lede">实验室家具设计与拆单工具集。全部为纯前端单文件工具，无需安装、不联网、打开即用。</p>
+
+  <div class="rule"></div>
+
+  <div class="label">工具列表</div>
+
+  <div class="cards">
+    <a class="card" href="./lab-bench-splitter/">
+      <div>
+        <h2>中央台快速拆单 <span>v1.0</span></h2>
+        <p>输入台面尺寸，自动扣除镶边与水柜，按空位率排布 900 双柜 / 450 单柜，输出拆单清单与技术俯视图。</p>
+        <div class="meta">
+          <span>全钢 · 钢木 · 不锈钢</span>
+          <span>双面 / 单面</span>
+          <span>方案比选</span>
+          <span>图纸 <i>+</i> 清单</span>
+        </div>
+      </div>
+      <span class="go">打开工具 →</span>
+    </a>
+  </div>
+
+  <div class="foot">
+    <span>Baitu_Tools · 内部工具集</span>
+    <span><a href="https://github.com/QJP233/Baitu_Tools" target="_blank" rel="noopener">GitHub 仓库</a></span>
+  </div>
+
+</div>
+</body>
+</html>
